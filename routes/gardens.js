@@ -28,6 +28,28 @@ router.post('/', function(req, res, next) {
 });
 
 /* GET a specific garden */
+router.get('/:id/edit', function(req, res, next) {
+  models.Garden.findById(req.params.id).then(function(garden) {
+    res.render('gardens/edit', {
+      title: 'Edit Garden',
+      garden: garden
+    });
+  });
+});
+
+/* GET a specific garden */
+router.patch('/:id', function(req, res, next) {
+  models.Garden.findById(req.params.id).then(function(garden) {
+    garden.update({
+      name:req.body.name,
+      shortDescription:req.body.shortDescription,
+    }).then(function(){
+        res.redirect(`/gardens/${garden.id}`);
+    });
+  });
+});
+
+/* GET a specific garden */
 router.get('/:id', function(req, res, next) {
   models.Garden.findById(req.params.id).then(function(garden) {
     res.render('gardens/show', {
@@ -36,5 +58,7 @@ router.get('/:id', function(req, res, next) {
     });
   });
 });
+
+
 
 module.exports = router;
