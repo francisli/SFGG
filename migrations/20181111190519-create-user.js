@@ -9,7 +9,7 @@ module.exports = {
         type: Sequelize.INTEGER
       },
       login: {
-        type: Sequelize.STRING
+        type: Sequelize.STRING,
         allowNull: false,
         unique: true
       },
@@ -17,7 +17,7 @@ module.exports = {
         type: Sequelize.STRING
       },
       admin: {
-        type: Sequelize.BOOLEAN
+        type: Sequelize.BOOLEAN,
         allowNull: false,
         defaultValue: false
       },
