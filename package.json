@@ -15,11 +15,13 @@
     "event-stream": "^4.0.1",
     "express": "~4.16.0",
     "express-ejs-layouts": "^2.5.0",
+    "express-session": "^1.15.6",
     "http-errors": "~1.6.2",
     "method-override": "^3.0.0",
     "morgan": "~1.9.0",
     "nodemon": "^1.18.4",
     "passport": "^0.4.0",
+    "passport-local": "^1.0.0",
     "pg": "^7.5.0",
     "sequelize": "^4.41.0",
     "sequelize-cli": "^4.1.1"

@@ -5,6 +5,19 @@
     <link rel='stylesheet' href='/libraries/bootstrap/css/bootstrap.css' />
   </head>
   <body>
+
+<% if(flash.info){ %>
+  <div class ="alert alert-success"><%= flash.info.join(" "); %> </div>
+<% } %>
+<% if(flash.error){ %>
+  <div class = "alert alert-danger"><%= flash.error.join(' '); %></div>
+<% } %>
+
+<% if(current_user){ %>
+  Hello, <%= current_user.login %>
+  <a href="/logout">Logout</a>
+<% } %>
+
     <!-- insert your menu bar here -->
     <h1>This header will appear on ALL NEW PAGES!</h1>
     <%- body %>
