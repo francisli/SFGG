@@ -21,7 +21,18 @@ router.get('/new', function(req, res, next) {
 router.post('/', function(req, res, next) {
   models.Garden.create({
 	  name: req.body.name,
-	  shortDescription: req.body.shortDescription
+	  shortDescription: req.body.shortDescription,
+    photoUrl: req.body.photoUrl,
+    address: req.body.address,
+    crossStreet: req.body.crossStreet,
+    city: req.body.city,
+    zipCode: req.body.zipCode,
+    neighborhood: req.body.neighborhood,
+    managedBy: req.body.managedBy,
+    openHours: req.body.openHours,
+    contactEmail: req.body.contactEmail,
+    contactPhone: req.body.contactPhone,
+    contactLink: req.body.contactLink,
   }).then(function(garden) {
 	  res.redirect(`/gardens/${garden.id}`)
   });
