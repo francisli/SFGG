@@ -54,6 +54,17 @@ router.patch('/:id', function(req, res, next) {
     garden.update({
       name:req.body.name,
       shortDescription:req.body.shortDescription,
+      photoUrl: req.body.photoUrl,
+      address: req.body.address,
+      crossStreet: req.body.crossStreet,
+      city: req.body.city,
+      zipCode: req.body.zipCode,
+      neighborhood: req.body.neighborhood,
+      managedBy: req.body.managedBy,
+      openHours: req.body.openHours,
+      contactEmail: req.body.contactEmail,
+      contactPhone: req.body.contactPhone,
+      contactLink: req.body.contactLink,
     }).then(function(){
         res.redirect(`/gardens/${garden.id}`);
     });
