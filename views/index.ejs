@@ -1,11 +1,31 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <title><%= title %></title>
-    <link rel='stylesheet' href='/stylesheets/style.css' />
-  </head>
-  <body>
-    <h1><%= title %></h1>
-    <p>Welcome to <%= title %></p>
-  </body>
-</html>
+<section class="jumbotron text-center">
+   <div class="container">
+     <h1 class="jumbotron-heading">SF Green Grounds</h1>
+     <p class="lead text-muted">There are many great individual as well as community-based urban gardening projects in San Francisco. However, because the management of these garden spaces and projects vary so diversely, it is often difficult to find online information that is consistent and/or encouraging to those seeking ways to support or get involved in local gardening.</p>
+     <p class="lead text-muted">The purpose of SF Green Grounds is to establish a centralized online network that can provide regular, up-to-date information around local urban gardening (and eventually other SF-based projects around localized-resources and sustainability).</p>
+   </div>
+ </section>
+
+ <div class="album py-5 bg-light">
+    <div class="container">
+      <div class="row">
+        <% for (let garden of gardens) { %>
+        <div class="col-md-4">
+          <div class="card mb-4 shadow-sm">
+            <svg class="bd-placeholder-img card-img-top" width="100%" height="225" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Placeholder: Thumbnail"><title>Placeholder</title><rect width="100%" height="100%" fill="#55595c"/><text x="50%" y="50%" fill="#eceeef" dy=".3em">Thumbnail</text></svg>
+            <div class="card-body">
+              <p class="card-text"><%= garden.name %></p>
+              <div class="d-flex justify-content-between align-items-center">
+                <div class="btn-group">
+                  <a href="/gardens/<%= garden.id %>" class="btn btn-sm btn-outline-secondary">View</a>
+                  <a href="/gardens/<%= garden.id %>/edit" class="btn btn-sm btn-outline-secondary">Edit</a>
+                </div>
+                <small class="text-muted"><%= garden.openHours %></small>
+              </div>
+            </div>
+          </div>
+        </div>
+        <% } %>
+      </div>
+    </div>
+  </div>
