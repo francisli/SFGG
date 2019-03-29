@@ -1,5 +1,5 @@
 <h1>Edit Garden</h1>
-<form method="post" action="/gardens/<%=garden.id%>?_method=patch">
+<form method="post" action="/gardens/<%=garden.id%>?_method=patch" encType="multipart/form-data">
 
   <div class="form-group">
     <label>Garden Name</label>
@@ -13,8 +13,8 @@
   </div>
 
   <div class="form-group">
-    <label>Photo URL</label>
-    <input type="text" class="form-control" name="photoUrl" value="<%=garden.photoUrl%>">
+    <label>Photo</label>
+    <input type="file" class="form-control" name="photo">
   </div>
 
   <div class="form-group">

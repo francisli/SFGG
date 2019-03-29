@@ -1,3 +1,5 @@
+require('dotenv').config();
+
 var createError = require('http-errors');
 var express = require('express');
 var path = require('path');
@@ -8,6 +10,8 @@ var expressLayouts = require('express-ejs-layouts');
 var session = require('express-session');
 var flash = require('connect-flash');
 var passport = require('passport');
+var fileUpload = require('express-fileupload');
+
 var indexRouter = require('./routes/index');
 var gardensRouter = require('./routes/gardens');
 var usersRouter = require('./routes/users');
@@ -21,6 +25,9 @@ app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
 app.use(expressLayouts);
 app.use(logger('dev'));
+app.use(fileUpload({
+  useTempFiles: !process.env.AWS_S3_BUCKET
+}));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(methodOverride('_method'));
